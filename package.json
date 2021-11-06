@@ -1,0 +1,19 @@
+{
+  "name": "whatsapp-web-backend",
+  "version": "1.0.0",
+  "description": "backend api to whatsapp-clone repo. project in view.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Samuellyworld/Whatsapp-Web-Backend.git"
+  },
+  "author": "Samuel Tosin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Samuellyworld/Whatsapp-Web-Backend/issues"
+  },
+  "homepage": "https://github.com/Samuellyworld/Whatsapp-Web-Backend#readme"
+}
