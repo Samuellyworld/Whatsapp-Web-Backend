@@ -2,6 +2,7 @@ const messages = require('./src/controllers');
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
+const cors = require('cors');
 const Pusher =  require('pusher');
 const port = process.env.PORT || 3001
 
@@ -24,6 +25,7 @@ mongoose.connect(connectionString, {
 
 // middleware
 app.use(express.json());
+app.use(cors());
 
 //  connecting to pusher middleware
 const pusher = new Pusher({
@@ -45,7 +47,7 @@ const db = mongoose.connection
           if(change.operationType === 'insert') {
               const messageDetails = change.fullDocument;
               pusher.trigger('messages', 'inserted', {
-                  name : messageDetails.user,
+                  name : messageDetails.name,
                   message : messageDetails.message
               })
           }
