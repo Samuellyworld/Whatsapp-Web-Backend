@@ -1,4 +1,4 @@
-
+const messages = require('./src/controllers');
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
@@ -26,6 +26,12 @@ app.use(express.json());
 app.get('/', (req,res) => {
     res.status(200).json('whatsapp clone is starting')
 })
+
+// post messages
+app.post('/messages/new', (req,res) => {messages.handlePostMessages(req,res)});
+
+// get messages
+app.get('messsages/sync', (req,res) => {messages.handleGetMessages(req,res)});
 
 // listening to server
 app.listen(port, () => {

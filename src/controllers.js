@@ -1,5 +1,5 @@
 
-const Messages = require('model.js');
+const Messages = require('./model.js');
 
 // post messages 
 
