@@ -5,8 +5,8 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: n",
-    "start" : "node server.js",
-    "dev" : "nodemon server.js"
+    "start": "node server.js",
+    "dev": "nodemon server.js"
   },
   "repository": {
     "type": "git",
@@ -20,7 +20,8 @@
   "homepage": "https://github.com/Samuellyworld/Whatsapp-Web-Backend#readme",
   "dependencies": {
     "express": "^4.17.1",
-    "mongoose": "^6.0.12"
+    "mongoose": "^6.0.12",
+    "pusher": "^5.0.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.14"
