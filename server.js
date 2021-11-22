@@ -1,4 +1,5 @@
-const messages = require('./src/controllers');
+const messages = require('./src/controllers/messages-controllers');
+const users = require('./src/controllers/users-controller')
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
@@ -46,9 +47,11 @@ const db = mongoose.connection
           console.log("A change occurred", change)
           if(change.operationType === 'insert') {
               const messageDetails = change.fullDocument;
+              console.log(messageDetails, 'messageDetails')
               pusher.trigger('messages', 'inserted', {
-                  name : messageDetails.name,
-                  message : messageDetails.message
+                  name :   messageDetails.users.additionalData[0].displayName,
+                  message : messageDetails.users.message,
+                  id : messageDetails._id
               })
           }
       })
@@ -64,6 +67,9 @@ app.post('/messages/new', (req,res) => {messages.handlePostMessages(req,res)});
 
 // get messages
 app.get('/messages/sync', (req,res) => {messages.handleGetMessages(req,res)});
+
+// get users from firebase auth
+app.post('/users', (req, res)=> {users.handleUsers(req,res)});
 
 // listening to server
 app.listen(port, () => {

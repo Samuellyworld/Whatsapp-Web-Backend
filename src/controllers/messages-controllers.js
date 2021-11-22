@@ -1,8 +1,7 @@
 
-const Messages = require('./model.js');
+const Messages = require('../model.js');
 
 // post messages 
-
 const handlePostMessages = (req,res) => {
     const dbMessage = req.body
     Messages.create(dbMessage, (err, data) => {
@@ -16,7 +15,6 @@ const handlePostMessages = (req,res) => {
 
 
 // get messages sync
-
 const handleGetMessages = (req,res) => {
     Messages.find((err, data) => {
         if(err) {
@@ -26,6 +24,7 @@ const handleGetMessages = (req,res) => {
         }
     })
 }
+
 
 module.exports = {
     handleGetMessages,
